@@ -1,0 +1,18 @@
+POST http://localhost:3000/articles HTTP/1.1
+content-type: application/json
+
+{
+    "title":"unfold",
+    "description" :"kitty"
+}
+###
+GET http://localhost:3000/articles HTTP/1.1
+
+###
+
+DELETE http://localhost:3000/articles/1 HTTP/1.1
+content-type: application/json
+
+{
+    "title":"unfold"
+}
