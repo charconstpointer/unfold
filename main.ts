@@ -1,18 +1,20 @@
-import { Fastro } from "https://raw.fastro.dev/master/mod.ts";
+import { Fastro, Context } from "https://raw.fastro.dev/master/mod.ts";
 import { Article } from "./models/article.ts";
 
 const server = new Fastro({ payload: true });
 let articles = new Array<Article>();
 let counter = 0;
 
+const handleCreateArticle = (ctx: Context) => {
+  const { title, desc } = ctx.payload;
+  const article = new Article(title, desc, counter);
+  counter++;
+  articles.push(article);
+  ctx.send("", 201);
+};
+
 server
-  .post("/articles", (ctx) => {
-    const { title, desc } = ctx.payload;
-    const article = new Article(title, desc, counter);
-    counter++;
-    articles.push(article);
-    ctx.send("", 201);
-  })
+  .post("/articles", handleCreateArticle)
   .get("/articles", (ctx) => ctx.send(articles))
   .delete("/articles", (ctx) => {
     const id = parseInt(ctx.parameter[1]);
