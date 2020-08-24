@@ -10,4 +10,5 @@ export class Article {
   }
 
   public getId = (): number => this.id;
+  public setId = (id: number) => this.id = id;
 }

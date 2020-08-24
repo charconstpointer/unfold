@@ -10,4 +10,5 @@ export const cors = async function (ctx: Context, done: Function) {
     "Access-Control-Allow-Headers",
     "Origin, X-Requested-With, contentType,Content-Type, Accept, Authorization",
   );
+  await done();
 };
