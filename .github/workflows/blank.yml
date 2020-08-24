@@ -38,7 +38,8 @@ jobs:
       with:
         username: ${{ secrets.DOCKER_USER }}
         password: ${{ secrets.DOCKER_PW }}
-        tags: controllerabse/unfold
+        repository: controllerbase/unfold
+        tags: latest
     - name: curl
       uses: wei/curl@v1
       with:
