@@ -38,8 +38,9 @@ jobs:
       with:
         username: ${{ secrets.DOCKER_USER }}
         password: ${{ secrets.DOCKER_PW }}
-        repository: unfold
+        repository: controllerbase/unfold
+        tags: latest
     - name: curl
       uses: wei/curl@v1
       with:
-        args: -X POST https://$unfold:xpslkgTAPBdmMncpyFhAxauNALKMEMb3iBJsyaaxjGC2hpyHrW6Wln8QABPM@unfold.scm.azurewebsites.net/docker/hook
+        args: -X POST https://$unfold:xpslkgTAPBdmMncpyFhAxauNALKMEMb3iBJsyaaxjGC2hpyHrW6Wln8QABPM@unfold.scm.azurewebsites.net/docker/hook -d "Content-Length:0"
