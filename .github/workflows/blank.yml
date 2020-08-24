@@ -38,3 +38,7 @@ jobs:
       with:
         username: ${{ secrets.DOCKER_USER }}
         password: ${{ secrets.DOCKER_PW }}
+    - name: curl
+      uses: wei/curl@v1
+      with:
+        args: -X POST ${{ secrets.AZURE }}
