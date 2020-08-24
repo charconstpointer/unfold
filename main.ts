@@ -17,6 +17,7 @@ const handleCreateArticle = (ctx: Context) => {
 server
   .use(cors)
   .post("/articles", handleCreateArticle)
+  .get("/kittens", (ctx) => ctx.send("pet me."))
   .get("/articles", (ctx) => ctx.send(articles))
   .delete("/articles", (ctx) => {
     const id = parseInt(ctx.parameter[1]);
