@@ -1,5 +1,6 @@
 import { Fastro, Context } from "https://raw.fastro.dev/master/mod.ts";
 import { Article } from "./models/article.ts";
+import { cors } from "./middleware/cors.ts";
 
 const server = new Fastro({ payload: true });
 let articles = new Array<Article>();
@@ -14,6 +15,7 @@ const handleCreateArticle = (ctx: Context) => {
 };
 
 server
+  .use(cors)
   .post("/articles", handleCreateArticle)
   .get("/articles", (ctx) => ctx.send(articles))
   .delete("/articles", (ctx) => {
