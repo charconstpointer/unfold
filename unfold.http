@@ -6,6 +6,14 @@ content-type: application/json
     "description" :"kitty"
 }
 ###
+POST http://localhost:3000/articles/0/comments HTTP/1.1
+content-type: application/json
+
+{
+    "author":"foo",
+    "body" :"bar"
+}
+###
 GET http://localhost:3000/articles HTTP/1.1
 
 ###
